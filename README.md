@@ -1,39 +1,97 @@
 # SAS_Biostats_Programming_Mani
 
 ## 📌 Purpose
-This repository provides a standardized SAS project structure for biostatistical programming, including macros, SDTM/ADaM datasets, and TLFs (Tables, Listings, Figures). It is intended as a reusable framework for clinical trial programming.
+This repository provides a **standardized SAS project structure** for biostatistical programming.  
+It includes macros, SDTM/ADaM datasets, and TLFs (Tables, Listings, Figures), along with QC and logging setups.  
+The goal is to make clinical trial programming **reproducible, organized, and compliant** with CDISC and regulatory expectations.
 
-## 📂 Structure
-- macros/ → Reusable SAS macros for datasets, QC, and outputs  
-- python_scripts/ → Python helpers for QC, conversions, automation  
-- sdtm/ → SAS programs for SDTM datasets  
-- adam/ → SAS programs for ADaM datasets  
-- tables/ → SAS programs for Tables  
-- listings/ → SAS programs for Listings  
-- figures/ → SAS programs for Figures  
-- qc/ → QC programs, organized into SDTM, ADaM, Tables, Listings, Figures  
-- data/ → Placeholders for raw/external data (not committed to GitHub)  
-- autoexec.sas → Defines libraries and auto-loads macros  
+---
+
+## 📂 Folder Structure
+
+```text
+SAS_Biostats_Programming_Mani/
+├── macros/                  # Reusable SAS macros
+├── python_scripts/          # Python helpers for QC, conversions, automation
+├── autoexec.sas             # Auto-loads macros and libraries
+├── data/                    # Data & outputs (⚠️ not stored in GitHub)
+│   ├── raw/
+│   ├── sdtm/
+│   │   ├── logs/
+│   │   ├── qc/
+│   │   │   ├── compare/
+│   │   │   └── logs/
+│   │   ├── xpt/
+│   │   └── specs/
+│   ├── adam/
+│   │   ├── logs/
+│   │   ├── qc/
+│   │   │   ├── compare/
+│   │   │   └── logs/
+│   │   ├── xpt/
+│   │   └── specs/
+│   ├── tables/
+│   │   ├── logs/
+│   │   └── qc/
+│   │       ├── compare/
+│   │       └── logs/
+│   ├── listings/
+│   │   ├── logs/
+│   │   └── qc/
+│   │       ├── compare/
+│   │       └── logs/
+│   └── figures/
+│       ├── logs/
+│       └── qc/
+│           ├── compare/
+│           └── logs/
+│
+├── programs/                # SAS programs
+│   ├── sdtm/                # SDTM programs
+│   ├── adam/                # ADaM programs
+│   ├── tables/              # Table programs
+│   ├── listings/            # Listing programs
+│   ├── figures/             # Figure programs
+│   └── qc/                  # QC programs
+│       ├── sdtm/
+│       ├── adam/
+│       ├── tables/
+│       ├── listings/
+│       └── figures/
+│
+└── README.md
+
+```
+---
 
 ## 🚀 Usage
-1. Clone the repository using:  
-   git clone git@github.com:manivannan-mathiazhagan/SAS_Biostats_Programming_Mani.git  
 
-2. Place raw datasets into the data/ folder (⚠️ do not push to GitHub).  
+1. Clone the repository:  
+   `git clone git@github.com:manivannan-mathiazhagan/SAS_Biostats_Programming_Mani.git`
 
-3. Modify autoexec.sas to update library paths as needed.  
+2. Place raw datasets into the **data/raw/** folder (⚠️ do not push clinical data to GitHub).
 
-4. Run programs in sdtm/, adam/, tables/, listings/, and figures/.  
+3. Run **autoexec.sas** to set up libraries and macro paths.  
+   - This links `data/` subfolders (SDTM, ADaM, TLFs) and QC folders.  
+   - It also auto-loads macros from the `macros/` directory.
 
-5. QC programs are available under the qc/ subfolders.  
+4. Develop programs in **programs/sdtm/**, **programs/adam/**, **programs/tables/**, **programs/listings/**, and **programs/figures/**.
+
+5. Place QC programs in **programs/qc/** with subfolders for SDTM, ADaM, Tables, Listings, and Figures.  
+   - Each QC data folder contains a `compare/` and `logs/` subfolder for validation and documentation.
+
+---
 
 ## ⚠️ Data Handling
-Raw and clinical trial data files should not be stored in GitHub due to size and confidentiality.  
-Instead:  
-- Keep only programs, macros, and specifications in GitHub.  
-- Data should remain on your company’s secure storage (P:/, Y:/, or ODA server).  
-- Programs will reference data through library paths defined in autoexec.sas.  
+
+- **Do not commit actual data** (`.sas7bdat`, `.xpt`, `.csv`) to GitHub.  
+- Use GitHub only for **programs, macros, specs, and scripts**.  
+- Data should remain in secure company storage (e.g., P:/, Y:/, ODA server).  
+- The repository provides placeholders (`data/`) to mimic project folder organization.
+
+---
 
 ## 👤 Author
 **Manivannan Mathialagan**  
-Statistical Programming Manager  
+Biostats Programming Enthusiast | SAS, Python, Automation
+ 📧 Email: [manivannan.mathiazhagan@gmail.com](mailto:manivannan.mathiazhagan@gmail.com) 
